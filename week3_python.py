@@ -1,4 +1,64 @@
-# Exercise 1
+# Basic output Python
+
+print ("Python itu mudah dan hebat\n")
+
+# Syntax print
+
+# print (object= separator= end= file= flush= ) Syntax dasar Python
+
+# Variabel
+
+angka = 12  # Type data Integer
+kalimat = "Hai ini adalah isi variabel" # Type data String
+kalimat2 = " dan ini kalimat kedua"
+
+# menampilkan isi variabel
+
+print(angka, kalimat, "\n")
+
+# Menampilkan 2 type data string dalam 1 line syntax print
+
+print(kalimat + kalimat2, "\n")
+
+# Output formatting
+
+p = 32
+q = 13
+
+print ('Isi variabel p adalah {} dan q {}\n' .format(p,q))
+
+# Syntax input python
+
+# kata = input('Masukkan kata:')
+# print ('Kamu memasukkan kata:', kata)
+# print('Tipe data dari kata:', type(kata), "\n")
+
+# Menulis, baca, dan menampilkan isi sebuah file
+
+
+# Menulis isi file lewat Python
+with open ('test.txt', 'w') as writefile:
+    writefile.write("Tambah baris 1\n")
+    writefile.write("Tambah baris 2\n")
+# Menampilkan isi file
+with open ("test.txt", "r") as testwritefile:
+    print (testwritefile.read())
+# Argumen di dalam file lewat Python 
+with open("test.txt", 'a') as testwritefile:
+    testwritefile.write("Ini adalah penulisan argumen\n")
+with open ("test.txt", "r") as testwritefile:
+    print (testwritefile.read())
+
+# Copy file
+with open('exampel.txt','r') as readfile:
+    with open('exampel2.txt','w') as writefile:
+          for line in readfile:
+                writefile.write(line)
+with open ('exampel.txt', 'r') as exampelcopy:
+    print (exampelcopy)
+
+    
+# Latihan 1
 
 # soal 1
 # membuat file dengan ekstensi .txt
@@ -36,6 +96,7 @@ with open("data_ekstrak_week3.txt", "w") as new_file:
     new_file.write("NPM: " + npm + "\n")
     new_file.write("Program Studi: " + program_studi + "\n")
     new_file.write("Alamat: " + alamat + "\n")
+    print('\n')
 
 # Exercise 2
 # memperbaiki kodingan agar bisa di run
