@@ -1,3 +1,42 @@
+# Exercise 1
+
+# soal 1
+# membuat file dengan ekstensi .txt
+
+# soal 2
+# buka file .txt yang sudah dibuat
+with open("week3_data.txt", "r") as file:
+    biodata = file.readlines()
+
+# Extract informasi dari txt
+nama = biodata[0].split(": ")[1].strip()
+program_studi = biodata[1].split(": ")[1].strip()
+email = biodata[5].split(": ")[1].strip()
+
+# Tampilkan informasi sesuai data
+print("Nama:", nama)
+print("Program Studi:", program_studi)
+print("Email:", email)
+
+# soal 3
+# Buka file txt tadi
+with open("week3_data.txt", "r") as file:
+    # Membaca isi file
+    biodata = file.readlines()
+
+# Mengumpulkan data dari file
+nama = biodata[0].split(": ")[1].strip()
+npm = biodata[2].split(": ")[1].strip()
+program_studi = biodata[1].split(": ")[1].strip()
+alamat = biodata[3].split(": ")[1].strip()
+
+# buat file .txt baru untuk menyimpan 
+with open("data_ekstrak_week3.txt", "w") as new_file:
+    new_file.write("Nama: " + nama + "\n")
+    new_file.write("NPM: " + npm + "\n")
+    new_file.write("Program Studi: " + program_studi + "\n")
+    new_file.write("Alamat: " + alamat + "\n")
+
 # Exercise 2
 # memperbaiki kodingan agar bisa di run
 
@@ -37,41 +76,4 @@ with open('Kuitansi.txt', 'w') as writefile:
     writefile.write(" \n")
     writefile.write("Total Belanja = Rp " + str(total))
 
-# Exercise 1
 
-# soal 1
-# membuat file dengan ekstensi .txt
-
-# soal 2
-# buka file .txt yang sudah dibuat
-with open("week3_data.txt", "r") as file:
-    biodata = file.readlines()
-
-# Extract informasi dari txt
-nama = biodata[0].split(": ")[1].strip()
-program_studi = biodata[1].split(": ")[1].strip()
-email = biodata[4].split(": ")[1].strip()
-
-# Tampilkan informasi sesuai data
-print("Nama:", nama)
-print("Program Studi:", program_studi)
-print("Email:", email)
-
-# soal 3
-# Buka file txt tadi
-with open("week3_data.txt", "r") as file:
-    # Membaca isi file
-    biodata = file.readlines()
-
-# Mengumpulkan data dari file
-nama = biodata[0].split(": ")[1].strip()
-npm = biodata[2].split(": ")[1].strip()
-program_studi = biodata[1].split(": ")[1].strip()
-alamat = biodata[3].split(": ")[1].strip()
-
-# buat file .txt baru untuk menyimpan 
-with open("data_ekstrak_week3.txt", "w") as new_file:
-    new_file.write("Nama: " + nama + "\n")
-    new_file.write("NPM: " + npm + "\n")
-    new_file.write("Program Studi: " + program_studi + "\n")
-    new_file.write("Alamat: " + alamat + "\n")
