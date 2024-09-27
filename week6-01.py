@@ -67,7 +67,7 @@ quotes = ['Jangan', 'Pernah', 'Menyerah']
 for name in quotes:
     # bagian dalam while loop
     count = 0
-    while count < 1000:
+    while count < 10:
         print(name, end=' ')
         # penghitung increment
         count = count + 1
