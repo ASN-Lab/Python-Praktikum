@@ -144,33 +144,38 @@ for i in range(n):
     print(" " * (n - i - 1) + "* " * (i + 1))
 
 # Exercise 2
-print("membuat segitiga pascal")
-n = int(input("Masukkan angka: "))
+print('\nMembuat segitiga pascal')
+def segitiga_pascal(n):
+    segitiga = [[1 for _ in range(i+1)] for i in range(n)]
+    for i in range(2, n):
+        for j in range(1, i):
+            segitiga[i][j] = segitiga[i-1][j-1] + segitiga[i-1][j]
+    return segitiga
 
-for i in range(n):
-    for j in range(n - i - 1):
-        print(" ", end="")
-    for k in range(i + 1):
-        if k == 0 or k == i:
-            print("1", end=" ")
-        else:
-            print(k, end=" ")
-    print()
+n = int(input("Masukkan jumlah baris: "))
+pascal_segitiga = segitiga_pascal(n)
+
+for i, row in enumerate(pascal_segitiga):
+    print(' ' * (n - i - 1) + ' '.join(str(num) for num in row))
 
 # Exercise 3
-print("membuat segitiga pascal dan penjumlahan semua nilai baris")
-n = int(input("Masukkan angka: "))
+print("\nMembuat segitiga pascal dan penjumlahan semua nilai baris")
+def segitiga_pascal(n):
+    segitiga = [[1 for _ in range(i+1)] for i in range(n)]
+    for i in range(2, n):
+        for j in range(1, i):
+            segitiga[i][j] = segitiga[i-1][j-1] + segitiga[i-1][j]
+    return segitiga
 
-for i in range(n):
-    sum = 0
-    for j in range(n - i - 1):
-        print(" ", end="")
-    for k in range(i + 1):
-        if k == 0 or k == i:
-            print("1", end=" ")
-            sum += 1
-        else:
-            print(k, end=" ")
-            sum += k
-    print()
-    print("Jumlah angka dalam satu baris segitiga pascal adalah: ", sum)
+def penjumlahan_baris(segitiga):
+    return [sum(row) for row in segitiga]
+
+n = int(input("Masukkan jumlah baris: "))
+pascal_segitiga = segitiga_pascal(n)
+
+for i, row in enumerate(pascal_segitiga):
+    print(' ' * (n - i - 1) + ' '.join(str(num) for num in row))
+
+print("\nPenjumlahan Angka Berdasarkan Baris:")
+for i, row_sum in enumerate(penjumlahan_baris(pascal_segitiga)):
+    print(f"Baris {i+1}: {row_sum}")
