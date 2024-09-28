@@ -144,6 +144,7 @@ for i in range(n):
     print(" " * (n - i - 1) + "* " * (i + 1))
 
 # Exercise 2
+<<<<<<< HEAD
 print('\nMembuat segitiga pascal')
 def segitiga_pascal(n):
     segitiga = [[1 for _ in range(i+1)] for i in range(n)]
@@ -179,3 +180,35 @@ for i, row in enumerate(pascal_segitiga):
 print("\nPenjumlahan Angka Berdasarkan Baris:")
 for i, row_sum in enumerate(penjumlahan_baris(pascal_segitiga)):
     print(f"Baris {i+1}: {row_sum}")
+=======
+print("membuat segitiga pascal")
+n = int(input("Masukkan angka: "))
+
+for i in range(n):
+    for j in range(n - i - 1):
+        print(" ", end="")
+    for k in range(i + 1):
+        if k == 0 or k == i:
+            print("1", end=" ")
+        else:
+            print(k, end=" ")
+    print()
+
+# Exercise 3
+print("membuat segitiga pascal dan penjumlahan semua nilai baris")
+n = int(input("Masukkan angka: "))
+
+for i in range(n):
+    sum = 0
+    for j in range(n - i - 1):
+        print(" ", end="")
+    for k in range(i + 1):
+        if k == 0 or k == i:
+            print("1", end=" ")
+            sum += 1
+        else:
+            print(k, end=" ")
+            sum += k
+    print()
+    print("Jumlah angka dalam satu baris segitiga pascal adalah: ", sum)
+>>>>>>> 2b5b101fde91e1a2410d54a7b2165ad1e7b260ff
