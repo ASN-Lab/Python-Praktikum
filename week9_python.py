@@ -1,114 +1,134 @@
-# Import Colorama
-from colorama import Fore, Back, Style
 import colorama
+from colorama import Fore, Style, init
+init()
 
-# Inisialisasi Colorama
-colorama.init()
+print(Style.BRIGHT + "\nWeek 9\n")
+# 1. LIST
+print("LIST")
+# List: Terurut, bisa diubah, memperbolehkan duplikat
+buah_list = ["apel", "pisang", "ceri", "apel"]  # List dengan duplikat
+angka_list = [1, 2, 3, 4, 5]  # List dengan angka
+campuran_list = ["halo", 42, True, 3.14]  # List dengan berbagai tipe data
 
-def print_header(text):
-    print(f"\n{Back.BLUE}{Fore.WHITE} {text} {Style.RESET_ALL}")
+print(f"List awal: {buah_list}")
+print(f"Panjang list: {len(buah_list)}")
+print(f"Item pertama: {buah_list[0]}")  # Mengakses dengan indeks
+print(f"Item terakhir: {buah_list[-1]}")  # Indeks negatif
+print(f"Potongan list: {buah_list[1:3]}")  # Pemotongan
 
-def print_subheader(text):
-    print(f"{Fore.YELLOW}{Style.BRIGHT}{text}{Style.RESET_ALL}")
+# Mengubah list
+buah_list[1] = "jeruk"  # Mengubah item
+buah_list.append("anggur")  # Menambah item di akhir
+buah_list.insert(1, "mangga")  # Menyisipkan pada posisi tertentu
+print(f"List setelah diubah: {buah_list}")
 
-def print_example(text):
-    print(f"{Fore.GREEN}{text}{Style.RESET_ALL}")
+# 2. TUPLE
+print("\nTUPLE")
+# Tuple: Terurut, tidak bisa diubah, memperbolehkan duplikat
+buah_tuple = ("apel", "pisang", "ceri", "apel")
+angka_tuple = (1, 2, 3, 4, 5)
+tuple_tunggal = (1,)  # Tuple dengan satu item perlu koma
 
-def print_explanation(text):
-    print(f"{Fore.CYAN}{text}{Style.RESET_ALL}")
+print(f"Tuple awal: {buah_tuple}")
+print(f"Jumlah 'apel': {buah_tuple.count('apel')}")  # Menghitung kemunculan
+print(f"Indeks 'pisang': {buah_tuple.index('pisang')}")  # Mencari indeks
 
-# List
-print_header("List")
-print_explanation("List adalah struktur data yang mutable dan berurutan.")
-print_explanation("Kegunaan: Menyimpan koleksi item yang dapat diubah dan diakses dengan indeks.")
+# 3. SET (HIMPUNAN)
+print("\nSET")
+# Set: Tidak terurut, tidak bisa diubah, tidak ada duplikat
+buah_set = {"apel", "pisang", "ceri", "apel"}  # Duplikat akan dihapus
+print(f"Set awal: {buah_set}")
 
-my_list = [1, 2, 3, "apple", "banana"]
-print_subheader("Contoh List:")
-print_example(f"my_list = {my_list}")
-print_example(f"Akses elemen: my_list[0] = {my_list[0]}")
-print_example(f"Ubah elemen: my_list[1] = 'changed'")
-my_list[1] = 'changed'
-print_example(f"List setelah diubah: {my_list}")
+# Operasi set
+set1 = {"a", "b", "c"}
+set2 = {"b", "c", "d"}
+print(f"Gabungan: {set1.union(set2)}")  # Menggabungkan set
+print(f"Irisan: {set1.intersection(set2)}")  # Elemen yang sama
+print(f"Selisih: {set1.difference(set2)}")  # Elemen di set1 tapi tidak di set2
 
-# Tuple
-print_header("Tuple")
-print_explanation("Tuple adalah struktur data yang immutable dan berurutan.")
-print_explanation("Kegunaan: Menyimpan koleksi item yang tidak boleh diubah setelah dibuat.")
+# Menambah dan menghapus dari set
+buah_set.add("jeruk")  # Tambah satu item
+buah_set.update(["mangga", "anggur"])  # Tambah beberapa item
+buah_set.remove("pisang")  # Hapus item
+print(f"Set setelah diubah: {buah_set}")
 
-my_tuple = (1, 2, 3, "apple", "banana")
-print_subheader("Contoh Tuple:")
-print_example(f"my_tuple = {my_tuple}")
-print_example(f"Akses elemen: my_tuple[0] = {my_tuple[0]}")
-print_example("Tuple tidak bisa diubah setelah dibuat")
-
-# Set
-print_header("Set")
-print_explanation("Set adalah struktur data yang mutable, tidak berurutan, dan tidak memiliki duplikat.")
-print_explanation("Kegunaan: Menyimpan koleksi item unik dan melakukan operasi himpunan.")
-
-my_set = {1, 2, 3, "apple", "banana"}
-print_subheader("Contoh Set:")
-print_example(f"my_set = {my_set}")
-print_example("Menambah elemen: my_set.add('orange')")
-my_set.add('orange')
-print_example(f"Set setelah ditambah: {my_set}")
-print_example("Set otomatis menghilangkan duplikat")
-
-# Dictionary
-print_header("Dictionary")
-print_explanation("Dictionary adalah struktur data yang mutable dengan pasangan key-value.")
-print_explanation("Kegunaan: Menyimpan data dalam format key-value untuk akses cepat.")
-
-my_dict = {"name": "John", "age": 30, "city": "New York"}
-print_subheader("Contoh Dictionary:")
-print_example(f"my_dict = {my_dict}")
-print_example(f"Akses value: my_dict['name'] = {my_dict['name']}")
-print_example("Menambah/mengubah elemen: my_dict['job'] = 'Engineer'")
-my_dict['job'] = 'Engineer'
-print_example(f"Dictionary setelah diubah: {my_dict}{Style.RESET_ALL}")
-
-# Weekly Exercise
-print(Style.BRIGHT + Fore.RED + "\nWeekly Exercise 1:" + "\n" +  Style.RESET_ALL)
-print(Style.BRIGHT + Fore.GREEN + "Perbedaan list, tuple, set, dan dictionary:" + "\n" +  Style.RESET_ALL)
-
-# List
-print(Style.BRIGHT + Fore.YELLOW + "1. List:" + Style.RESET_ALL)
-print(Fore.GREEN + " -Digunakan untuk menyimpan koleksi item yang berurutan.\n", "-Dapat diubah setelah dibuat.\n", "-Dibuat menggunakan tanda kurung siku [ ].\n", "-Memungkinkan duplikasi item.\n", "-Contoh: my_list = [1, 2, 3, 'a', 'b', 'c'].\n", "-Akses elemen menggunakan indeks: my_list[0].\n")
-
-# Tuple
-print(Style.BRIGHT + Fore.YELLOW + "2. Tuple:" + Style.RESET_ALL)
-print(Fore.GREEN + " -Mirip dengan list, tetapi tidak dapat diubah setelah dibuat.\n", "-Dibuat menggunakan tanda kurung biasa ( ).\n", "-Memungkinkan duplikasi item.\n", "-Umumnya lebih cepat daripada list untuk operasi baca.\n", "-Contoh: my_tuple = (1, 2, 3, 'a', 'b', 'c').\n", "-Akses elemen menggunakan indeks: my_tuple[0].\n" + Style.RESET_ALL)
-
-# Set
-print(Style.BRIGHT + Fore.YELLOW + "3. Set:" + Style.RESET_ALL)
-print(Fore.GREEN + " -Koleksi item yang tidak berurutan dan tidak terindeks.\n", "-Dapat diubah setelah dibuat, tetapi elemen-elemennya harus tidak dapat diubah setelah dibuat.\n", "-Tidak memungkinkan duplikasi item.\n", "-Dibuat menggunakan kurung kurawal { } atau fungsi set().\n", "-Berguna untuk banyak operasi matematika.\n", "-Contoh: my_set = {1, 2, 3, 'a', 'b', 'c'}.\n", "-Tidak bisa mengakses elemen dengan indeks.\n" + Style.RESET_ALL)
-
-# Dictionary
-print(Style.BRIGHT + Fore.YELLOW + "4. Dictionary:" + Style.RESET_ALL)
-print(Fore.GREEN + " -Koleksi pasangan key-value yang tidak berurutan.\n", "-Dapat diubah setelah dibuat.\n", "-Key harus unik dan tidak dapat diubah setelah dibuat(biasanya string atau angka).\n", "-Dibuat menggunakan kurung kurawal { } dengan format key:value.\n", "-Sangat efisien untuk pencarian, penyisipan, dan penghapusan.\n", "-Contoh: my_dict = {'nama': 'Aldiyan', 'age': 19, 'Kota': 'Temanggung'}.\n", "-Akses nilai menggunakan key: my_dict['nama'].\n" + Style.RESET_ALL)
-
-# Weekly Exercise 2
-print("\nWeekly Exercise 2:")
-dataDiri = {
-    "Nama"          : "Aldiyan Setyo Nugroho",
-    "Kelas"         : "01",
-    "Tanggal Lahir" : "12 Oktober 2005",
-    "No HP"         : "081234567890",
-    "Alamat"        : "Jl.Raya No. 123",
-    "Hobi"          : ["Membaca", "Bermain Gitar", "Olahraga"]
+# 4. DICTIONARY (KAMUS)
+print("\nDICTIONARY")
+# Dictionary: Terurut, bisa diubah, tidak ada duplikat kunci
+mobil = {
+    "merek": "Toyota",
+    "model": "Avanza",
+    "tahun": 2020,
+    "warna": ["merah", "putih", "hitam"]
 }
 
-# Fungsi untuk mencetak data dengan warna
-def cetak_data(key, value):
-    print(f"{Fore.YELLOW}{key}{Style.RESET_ALL}: {Fore.CYAN}{value}{Style.RESET_ALL}")
+print(f"Dictionary awal: {mobil}")
+print(f"Mengakses nilai: {mobil['merek']}")
+print(f"Mengambil nilai dengan aman: {mobil.get('model')}")
 
-# Menampilkan data diri
-print(f"{Back.BLUE}{Fore.WHITE} Data diri {Style.RESET_ALL}")
+# Mengubah dictionary
+mobil["tahun"] = 2023  # Ubah nilai
+mobil["harga"] = 250000000  # Tambah pasangan kunci-nilai baru
+print(f"Dictionary setelah diubah: {mobil}")
 
-for key, value in dataDiri.items():
-    if key == "Hobi":
-        print(f"{Fore.YELLOW}Hobi:{Style.RESET_ALL}")
+# Metode dictionary
+print(f"Kunci: {mobil.keys()}")
+print(f"Nilai: {mobil.values()}")
+print(f"Item: {mobil.items()}")
+
+# WEEKLY EXERCISE
+print("\nEXERCISE 1 ")
+print("""
+Perbedaan list, tuple, set, dan dictionary dalam Python:
+
+1. LIST:
+   - Menggunakan tanda []
+   - Dapat diubah (mutable)
+   - Terurut
+   - Mengizinkan duplikat
+   - Contoh: [1, 2, 3, 'a', 'b']
+
+2. TUPLE:
+   - Menggunakan tanda ()
+   - Tidak dapat diubah (immutable)
+   - Terurut
+   - Mengizinkan duplikat
+   - Contoh: (1, 2, 3, 'a', 'b')
+
+3. SET:
+   - Menggunakan tanda {}
+   - Dapat diubah tetapi elemennya immutable
+   - Tidak terurut
+   - Tidak mengizinkan duplikat
+   - Contoh: {1, 2, 3, 'a', 'b'}
+
+4. DICTIONARY:
+   - Menggunakan tanda {} dengan format key:value
+   - Dapat diubah
+   - Terurut (sejak Python 3.7)
+   - Tidak mengizinkan duplikat pada key
+   - Contoh: {'nama': 'Budi', 'umur': 25}
+""")
+
+# WEEKLY EXERCISE 2 
+print("\nEXERCISE 2 ")
+
+# Data mahasiswa menggunakan dictionary
+data_mahasiswa = {
+    "nama": "Aldiyan Setyo Nugroho",
+    "kelas": "Rombel 2",
+    "tanggal_lahir": "30 Februari 2005",
+    "no_hp": "0812398623",
+    "alamat": "Jl. Mawar No. 123, Magelang",
+    "hobi": ["Membaca", "Berenang", "Main Gitar"]
+}
+
+for key, value in data_mahasiswa.items():
+    if key == "hobi":
+        print(f"{key.upper()}:")
         for index, hobi in enumerate(value, 1):
-            print(f"  {Fore.GREEN}{index}. {hobi}{Style.RESET_ALL}")
+            print(f"{index}. {hobi}")
     else:
-        cetak_data(key, value)
+        print(f"{key.upper()}: {value}")
+
+print(Style.RESET_ALL)
